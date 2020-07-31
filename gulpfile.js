@@ -41,8 +41,7 @@ const cssFiles = [
 ];
 // all JS files
 const jsFiles = [
-    'app/js/main.js',
-    'app/js/career_script.js'
+    'app/js/bundle.js'
 ];
 
 // task HTML
