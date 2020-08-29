@@ -1,0 +1,111 @@
+@media screen and (max-width: 480px) {
+
+    //-----------------------------fixed_print-----------------------------
+    .fixed_print {
+        left: 2%;
+        right: 0;
+    }
+
+    //-----------------------------wrapper-----------------------------
+
+    .container {
+        width: 95%;
+    }
+
+    //-----------------------------project-----------------------------
+    .project_block {
+        width: 100%;
+    }
+
+    .project_bottom {
+        width: 95%;
+    }
+
+    //-----------------------------career-----------------------------
+    .block_adidas {
+        grid-row-start: 6;
+        grid-row-end: 12;
+    }
+
+    .career-modal__block {
+        width: 98%;
+        height: 500px;
+    }
+
+    .career-modal__content {
+        color: #000000;
+    }
+
+    //-----------------------------photo-----------------------------
+    .content_photo {
+        grid-template-columns: auto;
+    }
+
+    .photo-media {
+        &:hover {
+            transform: scale(1.15);
+        }
+    }
+
+    //-----------------------------contact-----------------------------
+    .about {
+        width: 100%;
+        margin-top: 5px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    //-----------------------------photo-----------------------------
+    .container_photo {
+        width: 95%;
+    }
+
+    .photo-media {
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    //-----------------------------career-----------------------------
+    .career-modal__block {
+        height: 450px;
+    }
+}
+
+@media screen and (max-height: 415px) {
+ 
+    //-----------------------------career-----------------------------
+    .career-modal{
+        &__block {
+            width: 98%;
+            height: 350px;
+        }
+        &__title {
+            height: 14%;
+        }
+        &__content {
+            height: 86%;
+        }
+    }
+}
+
+@media screen and (max-height: 376px) {
+ 
+    //-----------------------------career-----------------------------
+    .career-modal{
+        &__block {
+            height: 330px;
+        }
+        &__title {
+            height: 15%;
+        }
+        &__content {
+            height: 85%;
+        }
+    }
+}

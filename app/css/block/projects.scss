@@ -1,0 +1,126 @@
+//-----------------------------project-----------------------------
+
+.project-header {
+    position: absolute;
+    left: 8%;
+    width: 28%;
+}
+
+.project-header_block {
+    background: #fff;
+}
+
+.wrapper_project {
+    display: grid;
+}
+
+.project__slide--wrap {
+    display: grid;
+}
+
+.project_block {
+    margin-top: 185px;
+    width: 75%;
+    justify-self: center;
+    display: none;
+    grid-gap: 50px;
+}
+
+.project__active {
+    display: grid;
+}
+
+.project__fade {
+    animation-name: project_fade;
+    animation-duration: 1s;
+}
+
+@keyframes project_fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.project_top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.project_top-right {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    transition: .5s;
+
+    &:hover {
+        color: #000000;
+    }
+}
+
+.hr_for-tablets {
+    display: none;
+}
+
+.project_bottom {
+    height: 40px;
+    margin-top: 50px;
+    display: grid;
+    width: 75%;
+    justify-self: center;
+}
+
+.project_center {
+    background: #d4d4d4;
+    display: grid;
+    border: solid #000000;
+
+    &:hover .progect_site-pic {
+        opacity: 1;
+        filter: grayscale(0);
+        transition: all ease-in 0.2s;
+    }
+}
+
+.progect_site-pic {
+    opacity: 0.7;
+    align-self: center;
+    filter: grayscale(1);
+}
+
+.project_bottom-prev {
+    grid-column: 1 / 2;
+    display: grid;
+}
+
+.project_bottom-next {
+    grid-column: 2 / 3;
+    display: grid;
+}
+
+.button_prev {
+    justify-self: start;
+}
+
+.button_next {
+    justify-self: end;
+}
+
+.button_custom {
+    text-align: center;
+    color: #000000;
+    background: #f1f1f1;
+    padding: 10px;
+    box-shadow: #d4d4d4 0px 1px 1px;
+    transition: .3s;
+    border: solid black;
+    opacity: .8;
+
+    &:hover {
+        background: #fdfdfd;
+        color: #000000;
+        opacity: 1;
+    }
+}

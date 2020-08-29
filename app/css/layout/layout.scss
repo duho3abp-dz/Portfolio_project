@@ -1,0 +1,55 @@
+html{
+    height: 100%;
+    width: 100%;
+    background: #8e8e8e;
+}
+
+body{
+    font-family: "raleway", Arial, sans-serif;
+    position: relative;
+    font-size: 13px;
+    line-height: 1.42;
+    color: #8e8e8e;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    background: #fff;
+    grid-gap: 160px;
+    
+    width: 100%;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+a{
+    text-decoration: none;
+    color: #999;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+.title_all{
+    font-size: 42px;
+    font-weight: 900;
+    color: #000000;
+    line-height: 65px;
+    margin-bottom: 10px;
+    margin-top: 150px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+hr{
+    opacity: .1;
+}
+
+*{
+    box-sizing: border-box;
+}

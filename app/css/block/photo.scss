@@ -1,0 +1,52 @@
+//-----------------------------photo-----------------------------
+
+.container_photo {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: center;
+    display: grid;
+    grid-gap: 35px;
+
+    width: 75%;
+}
+
+.content_photo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.photo-media {
+    background: #d4d4d4;
+    transition: all ease-in .2s;
+    display: grid;
+    border: solid black;
+
+    &:hover {
+        transform: scale(1.3);
+        z-index: 1;
+    }
+
+    &:hover .photo_pic {
+        opacity: 1;
+        transition: all ease-in .2s;
+        filter: grayscale(0);
+    }
+
+    &:hover .gelen {
+        filter: hue-rotate(20deg);
+    }
+}
+
+.photo_pic {
+    opacity: 0.5;
+    align-items: center;
+    filter: grayscale(1);
+    transition: all 0.3s ease-in;
+}
+
+.gelen {
+    filter: grayscale(1);
+}

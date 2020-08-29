@@ -1,0 +1,75 @@
+@media screen and (max-width: 1024px) {
+
+    //-----------------------------fixed_menu-----------------------------
+    .navi_menu-list {
+        color: #fff;
+    }
+
+    //-----------------------------index-----------------------------
+    .menu_block-wrapper {
+        opacity: 0.8;
+    }
+
+    //-----------------------------about_me-----------------------------
+    .about {
+        color: #000000;
+    }
+
+    //-----------------------------projects-----------------------------
+    .project_top-right {
+        color: #000000;
+    }
+
+    .progect_site-pic {
+        opacity: 1;
+        filter: grayscale(0);
+    }
+
+    .button_custom {
+        background: #fdfdfd;
+        color: #000;
+    }
+
+    //-----------------------------career-----------------------------
+    .career-modal__content {
+        color: #000000;
+    }
+
+    //-----------------------------contact-----------------------------
+    .contact-mail,
+    .phone-number {
+        color: #000000;
+    }
+
+    //-----------------------------footer-----------------------------
+    .socials_icon {
+        fill: #000000;
+    }
+}
+
+@media screen and (max-width: 960px) {
+
+    //-----------------------------contact-----------------------------
+    .wrapper_contact {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        grid-template-rows: auto;
+    }
+
+    .container_contact {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .maincontent_contact {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .contact_about {
+        margin-top: 3px;
+    }
+}

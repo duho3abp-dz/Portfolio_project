@@ -1,0 +1,47 @@
+@media screen and (max-width: 768px) {
+    //-----------------------------project-----------------------------
+
+    .project-header {
+        width: 70%;
+    }
+
+    .project_block {
+        margin-top: 300px;
+    }
+
+    .project_top-right {
+        grid-column-start: 1;
+    }
+
+    .hr_for-tablets {
+        display: block;
+        background: #8e8e8e;
+        height: 5px;
+        opacity: 1;
+    }
+
+    //-----------------------------contact-----------------------------
+
+    .wrapper_about {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        grid-template-rows: auto;
+    }
+
+    .container_about {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .maincontent {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .about {
+        margin-top: 20px;
+    }
+}
