@@ -82,6 +82,7 @@
         background: #fff;
         justify-self: center;
         align-self: center;
+        overflow: hidden;
     }
 
     &__close {
@@ -118,14 +119,14 @@
 
     &__wrap {
         width: 90%;
-        height: 87%;
+        height: 450px;
         overflow: hidden;
         align-self: center;
         justify-self: center;
     }
 
     &__title {
-        height: 25%;
+        height: 100px;
         border-bottom: solid;
         overflow: hidden;
     }
@@ -151,7 +152,7 @@
     }
 
     &__content {
-        height: 75%;
+        height: 350px;
         overflow: auto;
         transition: 2s;
 
