@@ -58,7 +58,7 @@ function fonts(){
 
 // task img
 function images(){
-    return gulp.src('app/pictures/**/*.{png,svg,jpg}')
+    return gulp.src('app/pictures/**/*.{png,svg,jpg,ico}')
     .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlased: true})))
     .pipe(gulp.dest('dist/pictures'));
 }

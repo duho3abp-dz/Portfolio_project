@@ -55,6 +55,7 @@
 .menu_block{
     background: #d4d4d4;
     border: #000000 solid;
+    overflow: hidden;
 
     &:hover .menu_block-wrapper{
         opacity: 1;

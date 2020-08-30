@@ -20,7 +20,7 @@
 
 .project_block {
     margin-top: 185px;
-    width: 75%;
+    width: 60%;
     justify-self: center;
     display: none;
     grid-gap: 50px;
@@ -64,12 +64,21 @@
     display: none;
 }
 
+// .fixed_project_bottom {
+//     position: fixed;
+//     width: 100vw;
+//     height: 100vh;
+// }
+
 .project_bottom {
+    bottom: 2%;
+    position: fixed;
     height: 40px;
-    margin-top: 50px;
+    padding: 0 2%;
     display: grid;
-    width: 75%;
+    width: 100%;
     justify-self: center;
+    z-index: 100;
 }
 
 .project_center {
