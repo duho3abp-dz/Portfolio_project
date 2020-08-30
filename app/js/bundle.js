@@ -86,93 +86,72 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./app/js/modules/modal_career.js":
-/*!****************************************!*\
-  !*** ./app/js/modules/modal_career.js ***!
-  \****************************************/
+/***/ "./app/js/modules/modal.js":
+/*!*********************************!*\
+  !*** ./app/js/modules/modal.js ***!
+  \*********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const modalCareer = () => {
-    const brendLinks = document.querySelectorAll('.career__menu_block-click'),
-        brendModals = document.querySelectorAll('.career-modal'),
-        closeButtonsModals = document.querySelectorAll('.career-modal__close');
+const modal = ({
+    linksClass,
+    modalsClass,
+    closeButtonsClass,
+    activeBtnClass,
+    active,
+    fade,
+    background
+}) => {
+    const links = document.querySelectorAll(linksClass),
+          modals = document.querySelectorAll(modalsClass),
+          closeBtns = document.querySelectorAll(closeButtonsClass);
 
-    const openCloseModalCareer = links => {
-        links.forEach((link, i) => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
+    const openCloseModalCareer = links => links.forEach((link, i) => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
 
-                brendModals[i].classList.toggle('career-modal__active');
-                brendModals[i].classList.toggle('career-modal__fade');
-                brendModals[i].classList.contains('career-modal__active') ? document.body.style.overflow = 'hidden' : document.body.style.overflow = '';
-            });
+            if (activeBtnClass) { link.classList.toggle(activeBtnClass); }
+            if (fade) { modals[i].classList.toggle(fade); }
+
+            modals[i].classList.toggle(active);
+            modals[i].classList.contains(active) ? 
+                document.body.style.overflow = 'hidden' : 
+                document.body.style.overflow = '' ;
         });
-    };
+    });
 
     const closeModalCareer = modal => {
-        modal.classList.remove('career-modal__active');
-        modal.classList.remove('career-modal__fade');
+        if (activeBtnClass) { links.forEach(link => link.classList.toggle(activeBtnClass)); }
+        if (fade) { modal.classList.remove(fade); }
+
+        modal.classList.remove(active);
         document.body.style.overflow = '';
     };
 
     document.body.addEventListener('keydown', e => {
         if (e.keyCode == 27) {
-            brendModals.forEach(modal => {
-                if (modal.classList.contains('career-modal__active')) {
+            modals.forEach(modal => {
+                if (modal.classList.contains(active)) {
                     closeModalCareer(modal);
                 }
             });
         }
     });
 
-    brendModals.forEach(modal => {
-        modal.addEventListener('click', e => {
-            if (e.target.classList.contains('career-modal') == modal.classList.contains('career-modal')) {
-                closeModalCareer(modal);
-            }
+    if (background) {
+        modals.forEach(modal => {
+            modal.addEventListener('click', e => {
+                if (e.target.classList.contains(modalsClass.replace(/\./, ''))) { closeModalCareer(modal); }
+            });
         });
-    });
-
-    openCloseModalCareer(brendLinks);
-    openCloseModalCareer(closeButtonsModals);
+        openCloseModalCareer(closeBtns);
+    }
+    
+    openCloseModalCareer(links);
 };
-/* harmony default export */ __webpack_exports__["default"] = (modalCareer);
-
-/***/ }),
-
-/***/ "./app/js/modules/modal_menu.js":
-/*!**************************************!*\
-  !*** ./app/js/modules/modal_menu.js ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-const modalMenu = () => {
-    const naviMenu = document.querySelector('.navi_menu'),
-        fixedMenu = document.querySelector('.fixed_menu-link');
-
-    fixedMenu.addEventListener('click', e => {
-        e.preventDefault();
-
-        naviMenu.classList.toggle('navi__menu--active');
-        fixedMenu.classList.toggle('active_menu');
-        naviMenu.classList.contains('navi__menu--active') ? document.body.style.overflow = 'hidden' : document.body.style.overflow = '';
-    });
-
-    document.addEventListener('keydown', e => {
-        if (e.keyCode === 27 && naviMenu.classList.contains('navi__menu--active')) {
-            naviMenu.classList.remove('navi__menu--active');
-            fixedMenu.classList.remove('active_menu');
-            document.body.style.overflow = '';
-        }
-    });
-};
-/* harmony default export */ __webpack_exports__["default"] = (modalMenu);
+/* harmony default export */ __webpack_exports__["default"] = (modal);
 
 /***/ }),
 
@@ -185,65 +164,54 @@ const modalMenu = () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const slider = () => {
-    const nextSlide = document.querySelector('.button_next'),
-        prevSlide = document.querySelector('.button_prev'),
-        allSliders = document.querySelectorAll('.project_block'),
-        firstSlide = document.querySelector('.project__slide--wrap').firstElementChild,
-        lastSlide = document.querySelector('.project__slide--wrap').lastElementChild;
+const slider = ({
+    nextBtnClass, 
+    prevBtnClass, 
+    allSlidesClass,
+    active,
+    fade
+}) => {
+    const next = document.querySelector(nextBtnClass),
+          prev = document.querySelector(prevBtnClass),
+          allSlides = document.querySelectorAll(allSlidesClass);
+    let index = 0;
 
-    const changeSlide = (extr, compare, sliders) => {
-        let activeElem;
+    const changeSlide = (compare, slides) => {
+        compare === next ? index++ : index-- ;
 
-        sliders.forEach((slide, i) => {
-            if (slide != extr) {
-                if (slide.classList.contains('project__active')) {
-                    if (sliders.length == i + 2) {
-                        compare.style.display = 'none';
-                    } else {
-                        nextSlide.style.display = 'block';
-                        prevSlide.style.display = 'block';
-                    }
-                    if (slide != extr) {
-                        slide.classList.remove('project__active');
-                        slide.classList.remove('project__fade');
-                        if (compare == nextSlide) {
-                            activeElem = slide.nextElementSibling;
-                        } else if (compare == prevSlide) {
-                            activeElem = slide.previousElementSibling;
-                        }
-                    } else {
-                        activeElem = slide;
-                    }
-                }
-            }
-        });
-
-        if (!activeElem.classList.contains('project__active')) {
-            activeElem.classList.add('project__active');
-            activeElem.classList.add('project__fade');
+        if (index >= slides.length) {
+            index = 0;
+        } else if (index < 0) {
+            index = slides.length - 1;
         }
+        
+        slides.forEach((slide, i) => {
+            index === i ? 
+                slide.classList.add(active, fade) : 
+                slide.classList.remove(active, fade) ;
+        });
     };
 
-    const buttonAssignmentEvent = (extr, compare, sliders) => {
-        compare.addEventListener('click', e => {
-            e.preventDefault();
-
-            changeSlide(extr, compare, sliders);
-        });
+    const buttonAssignmentEvent = (compare, sliders) => {
+        if (compare) {
+            compare.addEventListener('click', e => {
+                e.preventDefault();
+                changeSlide(compare, sliders);
+            });
+        }
     };
 
     document.addEventListener('keydown', e => {
         if (e.keyCode == 39) {
-            changeSlide(lastSlide, nextSlide, allSliders);
+            changeSlide(next, allSlides);
         }
         if (e.keyCode == 37) {
-            changeSlide(firstSlide, prevSlide, allSliders);
+            changeSlide(prev, allSlides);
         }
     });
 
-    buttonAssignmentEvent(lastSlide, nextSlide, allSliders);
-    buttonAssignmentEvent(firstSlide, prevSlide, allSliders);
+    buttonAssignmentEvent(next, allSlides);
+    buttonAssignmentEvent(prev, allSlides);
 };
 /* harmony default export */ __webpack_exports__["default"] = (slider);
 
@@ -258,10 +226,8 @@ const slider = () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_modal_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal_menu */ "./app/js/modules/modal_menu.js");
-/* harmony import */ var _modules_modal_career__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal_career */ "./app/js/modules/modal_career.js");
-/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/slider */ "./app/js/modules/slider.js");
-
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ "./app/js/modules/modal.js");
+/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ "./app/js/modules/slider.js");
 
 
 
@@ -269,9 +235,30 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    Object(_modules_modal_menu__WEBPACK_IMPORTED_MODULE_0__["default"])();
-    Object(_modules_modal_career__WEBPACK_IMPORTED_MODULE_1__["default"])();
-    Object(_modules_slider__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    Object(_modules_modal__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        linksClass: '.fixed_menu-link',
+        modalsClass: '.navi_menu',
+        closeButtonsClass: '.fixed_menu-link',
+        activeBtnClass: 'active_menu',
+        active: 'navi__menu--active'
+    });
+
+    Object(_modules_modal__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        linksClass: '.career__menu_block-click',
+        modalsClass: '.career-modal',
+        closeButtonsClass: '.career-modal__close',
+        active: 'career-modal__active',
+        fade: 'career-modal__fade',
+        background: true
+    });
+    
+    Object(_modules_slider__WEBPACK_IMPORTED_MODULE_1__["default"])({
+        nextBtnClass: '.button_next', 
+        prevBtnClass: '.button_prev',
+        allSlidesClass: '.project_block',
+        active: 'project__active',
+        fade: 'project__fade',
+    });
     
 });
 

@@ -1,61 +1,50 @@
-const slider = () => {
-    const nextSlide = document.querySelector('.button_next'),
-        prevSlide = document.querySelector('.button_prev'),
-        allSliders = document.querySelectorAll('.project_block'),
-        firstSlide = document.querySelector('.project__slide--wrap').firstElementChild,
-        lastSlide = document.querySelector('.project__slide--wrap').lastElementChild;
+const slider = ({
+    nextBtnClass, 
+    prevBtnClass, 
+    allSlidesClass,
+    active,
+    fade
+}) => {
+    const next = document.querySelector(nextBtnClass),
+          prev = document.querySelector(prevBtnClass),
+          allSlides = document.querySelectorAll(allSlidesClass);
+    let index = 0;
 
-    const changeSlide = (extr, compare, sliders) => {
-        let activeElem;
+    const changeSlide = (compare, slides) => {
+        compare === next ? index++ : index-- ;
 
-        sliders.forEach((slide, i) => {
-            if (slide != extr) {
-                if (slide.classList.contains('project__active')) {
-                    if (sliders.length == i + 2) {
-                        compare.style.display = 'none';
-                    } else {
-                        nextSlide.style.display = 'block';
-                        prevSlide.style.display = 'block';
-                    }
-                    if (slide != extr) {
-                        slide.classList.remove('project__active');
-                        slide.classList.remove('project__fade');
-                        if (compare == nextSlide) {
-                            activeElem = slide.nextElementSibling;
-                        } else if (compare == prevSlide) {
-                            activeElem = slide.previousElementSibling;
-                        }
-                    } else {
-                        activeElem = slide;
-                    }
-                }
-            }
-        });
-
-        if (!activeElem.classList.contains('project__active')) {
-            activeElem.classList.add('project__active');
-            activeElem.classList.add('project__fade');
+        if (index >= slides.length) {
+            index = 0;
+        } else if (index < 0) {
+            index = slides.length - 1;
         }
+        
+        slides.forEach((slide, i) => {
+            index === i ? 
+                slide.classList.add(active, fade) : 
+                slide.classList.remove(active, fade) ;
+        });
     };
 
-    const buttonAssignmentEvent = (extr, compare, sliders) => {
-        compare.addEventListener('click', e => {
-            e.preventDefault();
-
-            changeSlide(extr, compare, sliders);
-        });
+    const buttonAssignmentEvent = (compare, sliders) => {
+        if (compare) {
+            compare.addEventListener('click', e => {
+                e.preventDefault();
+                changeSlide(compare, sliders);
+            });
+        }
     };
 
     document.addEventListener('keydown', e => {
         if (e.keyCode == 39) {
-            changeSlide(lastSlide, nextSlide, allSliders);
+            changeSlide(next, allSlides);
         }
         if (e.keyCode == 37) {
-            changeSlide(firstSlide, prevSlide, allSliders);
+            changeSlide(prev, allSlides);
         }
     });
 
-    buttonAssignmentEvent(lastSlide, nextSlide, allSliders);
-    buttonAssignmentEvent(firstSlide, prevSlide, allSliders);
+    buttonAssignmentEvent(next, allSlides);
+    buttonAssignmentEvent(prev, allSlides);
 };
 export default slider;

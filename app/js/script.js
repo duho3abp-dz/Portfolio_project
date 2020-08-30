@@ -1,13 +1,33 @@
 'use strict';
 
-import modalMenu from './modules/modal_menu';
-import modalCareer from './modules/modal_career';
+import modal from './modules/modal';
 import slider from './modules/slider';
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    modalMenu();
-    modalCareer();
-    slider();
+    modal({
+        linksClass: '.fixed_menu-link',
+        modalsClass: '.navi_menu',
+        closeButtonsClass: '.fixed_menu-link',
+        activeBtnClass: 'active_menu',
+        active: 'navi__menu--active'
+    });
+
+    modal({
+        linksClass: '.career__menu_block-click',
+        modalsClass: '.career-modal',
+        closeButtonsClass: '.career-modal__close',
+        active: 'career-modal__active',
+        fade: 'career-modal__fade',
+        background: true
+    });
+    
+    slider({
+        nextBtnClass: '.button_next', 
+        prevBtnClass: '.button_prev',
+        allSlidesClass: '.project_block',
+        active: 'project__active',
+        fade: 'project__fade',
+    });
     
 });
