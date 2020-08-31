@@ -64,23 +64,6 @@
     display: none;
 }
 
-// .fixed_project_bottom {
-//     position: fixed;
-//     width: 100vw;
-//     height: 100vh;
-// }
-
-.project_bottom {
-    bottom: 2%;
-    position: fixed;
-    height: 40px;
-    padding: 0 2%;
-    display: grid;
-    width: 100%;
-    justify-self: center;
-    z-index: 100;
-}
-
 .project_center {
     background: #d4d4d4;
     display: grid;
@@ -100,13 +83,19 @@
 }
 
 .project_bottom-prev {
-    grid-column: 1 / 2;
-    display: grid;
+    bottom: 2%;
+    left: 2%;
+    position: fixed;
+    height: 40px;
+    z-index: 100;
 }
 
 .project_bottom-next {
-    grid-column: 2 / 3;
-    display: grid;
+    bottom: 2%;
+    right: 2%;
+    position: fixed;
+    height: 40px;
+    z-index: 100;
 }
 
 .button_prev {

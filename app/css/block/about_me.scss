@@ -112,10 +112,6 @@
     filter: saturate(0.5);
     display: grid;
     transition: all ease-in .2s;
-
-    &:hover {
-        transform: scale(1.3);
-    }
 }
 
 .about_photo-pic {
