@@ -25,6 +25,10 @@
         width: 95%;
     }
 
+    .button_custom {
+        font-size: 14px;
+    }
+
     //-----------------------------career-----------------------------
     .block_adidas {
         grid-row-start: 6;
@@ -56,6 +60,14 @@
         width: 100%;
         margin-top: 5px;
         margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 430px) {
+
+    //-----------------------------projects-----------------------------
+    .button_custom {
+        font-size: 12px;
     }
 }
 
@@ -94,7 +106,19 @@
     }
 }
 
+@media screen and (max-width: 355px) {
+
+    //-----------------------------projects-----------------------------
+    .button_custom {
+        font-size: 10px;
+    }
+}
+
 @media screen and (max-height: 415px) {
+    // -----------------------------Navi_menu-----------------------------
+    .menu-block .socials {
+        display: none;
+    }
  
     //-----------------------------career-----------------------------
     .career-modal{
@@ -146,5 +170,10 @@
         &__content {
             height: 250px;
         }
+    }
+
+    //-----------------------------projects-----------------------------
+    .menu-block a {
+        font-size: 25px;
     }
 }

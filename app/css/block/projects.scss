@@ -82,20 +82,19 @@
     filter: grayscale(1);
 }
 
-.project_bottom-prev {
-    bottom: 2%;
-    left: 2%;
+.project_bottom-next, .project_bottom-prev {
+    bottom: 10%;
     position: fixed;
     height: 40px;
     z-index: 100;
 }
 
+.project_bottom-prev {
+    left: 2%;
+}
+
 .project_bottom-next {
-    bottom: 2%;
     right: 2%;
-    position: fixed;
-    height: 40px;
-    z-index: 100;
 }
 
 .button_prev {
@@ -108,8 +107,10 @@
 
 .button_custom {
     text-align: center;
-    color: #000000;
-    background: #f1f1f1;
+    color: #fff;
+    background: #000000;
+    font-size: 16px;
+    font-weight: 800;
     padding: 10px;
     box-shadow: #d4d4d4 0px 1px 1px;
     transition: .3s;

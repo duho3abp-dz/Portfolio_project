@@ -86,6 +86,39 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./app/js/modules/hide.js":
+/*!********************************!*\
+  !*** ./app/js/modules/hide.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+
+const hide = ({hideElemClass, elemTargetClass}) => {
+    
+    const hideElement = document.querySelector(hideElemClass),
+          elementTarget = document.querySelector(elemTargetClass),
+          clientHeightScreen = document.documentElement.clientHeight;
+
+    document.addEventListener('scroll', () => {
+        const targetHeight = elementTarget.getBoundingClientRect().bottom - clientHeightScreen;
+
+        if (+targetHeight <= 0) {
+            hideElement.style.display = 'none';
+        } else {
+            hideElement.style.display = '';
+        }
+    });
+
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (hide);
+
+/***/ }),
+
 /***/ "./app/js/modules/modal.js":
 /*!*********************************!*\
   !*** ./app/js/modules/modal.js ***!
@@ -228,6 +261,8 @@ const slider = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ "./app/js/modules/modal.js");
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ "./app/js/modules/slider.js");
+/* harmony import */ var _modules_hide__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/hide */ "./app/js/modules/hide.js");
+
 
 
 
@@ -258,6 +293,11 @@ window.addEventListener('DOMContentLoaded', () => {
         allSlidesClass: '.project_block',
         active: 'project__active',
         fade: 'project__fade',
+    });
+
+    Object(_modules_hide__WEBPACK_IMPORTED_MODULE_2__["default"])({
+        hideElemClass: '.fixed-socials',
+        elemTargetClass: '.footer .socials'
     });
     
 });

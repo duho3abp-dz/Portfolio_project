@@ -22,13 +22,14 @@
 
 .socials{
     &:hover .socials_icon{
-        fill: #000000;
+        fill-opacity: 1;
         transition: all ease-in .3s;
     }
 }
 
 .socials_icon{
-    width: 30px;
+    width: 40px;
     height: auto;
-    fill: #999;
+    fill: #000000;
+    fill-opacity: .3;
 }

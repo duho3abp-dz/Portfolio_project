@@ -96,6 +96,19 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 10px;
+
+    & .socials {
+        margin: 0 auto;
+    }
+
+    & .socials_icon {
+        fill: #999;
+        fill-opacity: 1;
+
+        &:hover {
+            fill: #fff;    
+        }
+    }
 }
 
 .navi_menu-list{
@@ -106,6 +119,10 @@
         color: #fff;
         transition: all ease-in .2s;
     }
+}
+
+.menu-list_active {
+    color: #fff;
 }
 
 .navi__menu--active{
@@ -158,4 +175,13 @@
     fill: #fff;
     justify-self: center;
     align-self: center;
+}
+
+//-----------------------------fixed-socials-----------------------------
+.fixed-socials {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
 }

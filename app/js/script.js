@@ -2,6 +2,7 @@
 
 import modal from './modules/modal';
 import slider from './modules/slider';
+import hide from './modules/hide';
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -28,6 +29,11 @@ window.addEventListener('DOMContentLoaded', () => {
         allSlidesClass: '.project_block',
         active: 'project__active',
         fade: 'project__fade',
+    });
+
+    hide({
+        hideElemClass: '.fixed-socials',
+        elemTargetClass: '.footer .socials'
     });
     
 });

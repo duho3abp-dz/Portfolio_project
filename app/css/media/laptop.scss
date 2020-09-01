@@ -1,6 +1,10 @@
 @media screen and (max-width: 1024px) {
 
     //-----------------------------fixed_menu-----------------------------
+    .menu-block .socials_icon {
+        fill: #fff;
+    }
+
     .navi_menu-list {
         color: #fff;
     }
@@ -26,8 +30,11 @@
     }
 
     .button_custom {
-        background: #fdfdfd;
-        color: #000;
+        &:hover {
+            background: #000000;
+            color: #fff;
+            opacity: .8;
+        }
     }
 
     //-----------------------------career-----------------------------
@@ -42,8 +49,8 @@
     }
 
     //-----------------------------footer-----------------------------
-    .socials_icon {
-        fill: #000000;
+    .footer .socials_icon {
+        fill-opacity: 1;
     }
 }
 
