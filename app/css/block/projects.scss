@@ -2,16 +2,31 @@
 
 .project-header {
     position: absolute;
-    left: 8%;
+    // left: 8%;
+    padding-left: 8%;
+    padding-bottom: 60px;
     width: 28%;
+    background: #fff;
+    z-index: 10;
 }
 
 .project-header_block {
     background: #fff;
 }
 
-.wrapper_project {
+.progect_gray {
+    background: #999;
+    position: relative;
     display: grid;
+    overflow: hidden;
+}
+
+.wrapper_project {
+    margin: 0 auto;
+    width: 65%;
+    display: grid;
+    background: #fff;
+    z-index: 5;
 }
 
 .project__slide--wrap {
@@ -20,7 +35,7 @@
 
 .project_block {
     margin-top: 185px;
-    width: 60%;
+    width: 90%;
     justify-self: center;
     display: none;
     grid-gap: 50px;

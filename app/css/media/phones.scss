@@ -66,8 +66,20 @@
 @media screen and (max-width: 430px) {
 
     //-----------------------------projects-----------------------------
+    .wrapper_project {
+        width: 95%;
+    }
+
     .button_custom {
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 355px) {
+
+    //-----------------------------projects-----------------------------
+    .button_custom {
+        font-size: 10px;
     }
 }
 
@@ -103,14 +115,6 @@
         &__content {
             height: 350px;
         }
-    }
-}
-
-@media screen and (max-width: 355px) {
-
-    //-----------------------------projects-----------------------------
-    .button_custom {
-        font-size: 10px;
     }
 }
 

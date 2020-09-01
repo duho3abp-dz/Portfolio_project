@@ -5,8 +5,8 @@
         fill: #fff;
     }
 
-    .navi_menu-list {
-        color: #fff;
+    .fixed-socials {
+        display: none;
     }
 
     //-----------------------------index-----------------------------
@@ -20,6 +20,10 @@
     }
 
     //-----------------------------projects-----------------------------
+    .wrapper_project {
+        width: 80%;
+    }
+
     .project_top-right {
         color: #000000;
     }
