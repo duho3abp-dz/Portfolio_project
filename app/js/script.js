@@ -29,6 +29,8 @@ window.addEventListener('DOMContentLoaded', () => {
         allSlidesClass: '.project_block',
         active: 'project__active',
         fade: 'project__fade',
+        actualPageClass: '.project_counter-active',
+        allPagesClass: '.project_counter-all'
     });
 
     hide({

@@ -206,17 +206,25 @@ const modal = ({
 __webpack_require__.r(__webpack_exports__);
 const slider = ({
     nextBtnClass, 
-    prevBtnClass, 
+    prevBtnClass,
+    actualPageClass,
+    allPagesClass,
     allSlidesClass,
     active,
     fade
 }) => {
     const next = document.querySelector(nextBtnClass),
           prev = document.querySelector(prevBtnClass),
-          allSlides = document.querySelectorAll(allSlidesClass);
+          allSlides = document.querySelectorAll(allSlidesClass),
+          actualPage = document.querySelector(actualPageClass),
+          allPages = document.querySelector(allPagesClass);
     let index = 0;
 
-    const changeSlide = (compare, slides) => {
+    const testCounter = (num) => num < 10 ? `0${num}` : num ;
+
+    const counterProjects = (ind, elem) => elem ? elem.textContent = `${testCounter(ind + 1)}/` : null;
+
+    const changeSlide = (compare, slides, actual) => {
         compare === next ? index++ : index-- ;
 
         if (index >= slides.length) {
@@ -224,6 +232,8 @@ const slider = ({
         } else if (index < 0) {
             index = slides.length - 1;
         }
+
+        counterProjects(index, actual);
         
         slides.forEach((slide, i) => {
             index === i ? 
@@ -232,26 +242,29 @@ const slider = ({
         });
     };
 
-    const buttonAssignmentEvent = (compare, sliders) => {
+    const buttonAssignmentEvent = (compare, slides, actual) => {
         if (compare) {
             compare.addEventListener('click', e => {
                 e.preventDefault();
-                changeSlide(compare, sliders);
+                changeSlide(compare, slides, actual);
             });
         }
     };
 
+    if (allPages) { allPages.textContent = testCounter(allSlides.length); }
+    
     document.addEventListener('keydown', e => {
         if (e.keyCode == 39) {
-            changeSlide(next, allSlides);
+            changeSlide(next, allSlides, actualPage);
         }
         if (e.keyCode == 37) {
             changeSlide(prev, allSlides);
         }
     });
 
-    buttonAssignmentEvent(next, allSlides);
-    buttonAssignmentEvent(prev, allSlides);
+    counterProjects(index, actualPage);
+    buttonAssignmentEvent(next, allSlides, actualPage);
+    buttonAssignmentEvent(prev, allSlides, actualPage);
 };
 /* harmony default export */ __webpack_exports__["default"] = (slider);
 
@@ -300,6 +313,8 @@ window.addEventListener('DOMContentLoaded', () => {
         allSlidesClass: '.project_block',
         active: 'project__active',
         fade: 'project__fade',
+        actualPageClass: '.project_counter-active',
+        allPagesClass: '.project_counter-all'
     });
 
     Object(_modules_hide__WEBPACK_IMPORTED_MODULE_2__["default"])({

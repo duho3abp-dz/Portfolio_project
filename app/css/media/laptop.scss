@@ -36,6 +36,7 @@
     .button_custom {
         &:hover {
             background: #000000;
+            border: solid #fff;
             color: #fff;
             opacity: .8;
         }
@@ -47,8 +48,7 @@
     }
 
     //-----------------------------contact-----------------------------
-    .contact-mail,
-    .phone-number {
+    .contact {
         color: #000000;
     }
 

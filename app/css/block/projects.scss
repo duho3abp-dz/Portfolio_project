@@ -98,10 +98,38 @@
 }
 
 .project_bottom-next, .project_bottom-prev {
+    height: 40px;
     bottom: 10%;
     position: fixed;
-    height: 40px;
     z-index: 100;
+}
+
+.project_counter {
+    width: 70px;
+    height: 40px;
+    background: #000;
+    left: 50%;
+    bottom: 12%;
+    transform: translateX(-50%);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid #fff 2px ;
+    background: #000000;
+    transition: .3s;
+    opacity: .8;
+    z-index: 100;
+
+    &-active {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 800;
+    }
+    &-all {
+        font-size: 16px;
+        font-weight: 500;
+    }
 }
 
 .project_bottom-prev {
@@ -127,13 +155,13 @@
     font-size: 16px;
     font-weight: 800;
     padding: 10px;
-    box-shadow: #d4d4d4 0px 1px 1px;
     transition: .3s;
-    border: solid black;
+    border: solid #fff;
     opacity: .8;
 
     &:hover {
         background: #fdfdfd;
+        border: solid #000;
         color: #000000;
         opacity: 1;
     }
