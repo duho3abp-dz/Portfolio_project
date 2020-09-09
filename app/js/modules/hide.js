@@ -5,16 +5,23 @@ const hide = ({hideElemClass, elemTargetClass}) => {
     const hideElement = document.querySelector(hideElemClass),
           elementTarget = document.querySelector(elemTargetClass),
           clientHeightScreen = document.documentElement.clientHeight;
+    let targetHeight = elementTarget.getBoundingClientRect().bottom - clientHeightScreen;
+
+    const heightTest = (target, elem) => {
+        if (+target <= 0) {
+            elem.style.display = 'none';
+        } else {
+            elem.style.display = '';
+        }
+    };
 
     document.addEventListener('scroll', () => {
-        const targetHeight = elementTarget.getBoundingClientRect().bottom - clientHeightScreen;
+        targetHeight = elementTarget.getBoundingClientRect().bottom - clientHeightScreen;
 
-        if (+targetHeight <= 0) {
-            hideElement.style.display = 'none';
-        } else {
-            hideElement.style.display = '';
-        }
+        heightTest(targetHeight, hideElement);
     });
+
+    heightTest(targetHeight, hideElement);
 
 };
 
