@@ -25,6 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     
     slider({
+        sliderWrapClass: '.project__slide--wrap',
         nextBtnClass: '.button_next', 
         prevBtnClass: '.button_prev',
         allSlidesClass: '.project_block',

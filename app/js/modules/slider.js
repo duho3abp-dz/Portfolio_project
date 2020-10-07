@@ -1,4 +1,5 @@
 const slider = ({
+    sliderWrapClass,
     nextBtnClass, 
     prevBtnClass,
     actualPageClass,
@@ -11,7 +12,8 @@ const slider = ({
           prev = document.querySelector(prevBtnClass),
           allSlides = document.querySelectorAll(allSlidesClass),
           actualPage = document.querySelector(actualPageClass),
-          allPages = document.querySelector(allPagesClass);
+          allPages = document.querySelector(allPagesClass),
+          wrapSlider = document.querySelector(sliderWrapClass);
     let index = 0;
 
     const testCounter = (num) => num < 10 ? `0${num}` : num ;
@@ -46,6 +48,27 @@ const slider = ({
     };
 
     if (allPages) { allPages.textContent = testCounter(allSlides.length); }
+
+    if (wrapSlider) { 
+        wrapSlider.addEventListener('touchstart', e => {
+            const startTouch = e.targetTouches[0].pageX;
+
+            const touchMoveEvent = e => {
+                e.preventDefault();
+
+                if (startTouch > e.targetTouches[0].pageX) {
+                    changeSlide(next, allSlides, actualPage);
+                }
+                if (startTouch < e.targetTouches[0].pageX) {
+                    changeSlide(prev, allSlides, actualPage);
+                }
+
+                wrapSlider.removeEventListener('touchmove', touchMoveEvent);    
+            }
+
+            wrapSlider.addEventListener('touchmove', touchMoveEvent);
+        }); 
+    }
     
     document.addEventListener('keydown', e => {
         if (e.keyCode == 39) {
