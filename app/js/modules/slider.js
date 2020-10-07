@@ -52,7 +52,7 @@ const slider = ({
             changeSlide(next, allSlides, actualPage);
         }
         if (e.keyCode == 37) {
-            changeSlide(prev, allSlides);
+            changeSlide(prev, allSlides, actualPage);
         }
     });
 

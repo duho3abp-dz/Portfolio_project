@@ -11,7 +11,8 @@ window.addEventListener('DOMContentLoaded', () => {
         modalsClass: '.navi_menu',
         closeButtonsClass: '.fixed_menu-link',
         activeBtnClass: 'active_menu',
-        active: 'navi__menu--active'
+        active: 'navi__menu--active',
+        escape: true
     });
 
     modal({

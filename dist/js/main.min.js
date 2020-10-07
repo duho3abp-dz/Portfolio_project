@@ -142,24 +142,37 @@ const modal = ({
     activeBtnClass,
     active,
     fade,
-    background
+    background,
+    escape
 }) => {
     const links = document.querySelectorAll(linksClass),
           modals = document.querySelectorAll(modalsClass),
           closeBtns = document.querySelectorAll(closeButtonsClass);
 
-    const openCloseModalCareer = links => links.forEach((link, i) => {
+    const openCloseModal = (modal, link) => {
+        if (activeBtnClass) { link.classList.toggle(activeBtnClass); }
+        if (fade) { modal.classList.toggle(fade); }
+
+        modal.classList.toggle(active);
+        modal.classList.contains(active) ? 
+            document.body.style.overflow = 'hidden' : 
+            document.body.style.overflow = '' ;
+    };
+
+    const addEvent = links => links.forEach((link, i) => {
         link.addEventListener('click', e => {
             e.preventDefault();
 
-            if (activeBtnClass) { link.classList.toggle(activeBtnClass); }
-            if (fade) { modals[i].classList.toggle(fade); }
-
-            modals[i].classList.toggle(active);
-            modals[i].classList.contains(active) ? 
-                document.body.style.overflow = 'hidden' : 
-                document.body.style.overflow = '' ;
+            openCloseModal(modals[i], link);
         });
+
+        if (escape) {
+            window.addEventListener('keydown', e => {
+                if (e.key === 'Escape') {
+                    openCloseModal(modals[i], link);
+                }
+            });
+        }
     });
 
     const closeModalCareer = modal => {
@@ -170,26 +183,16 @@ const modal = ({
         document.body.style.overflow = '';
     };
 
-    document.body.addEventListener('keydown', e => {
-        if (e.keyCode == 27) {
-            modals.forEach(modal => {
-                if (modal.classList.contains(active)) {
-                    closeModalCareer(modal);
-                }
-            });
-        }
-    });
-
     if (background) {
         modals.forEach(modal => {
             modal.addEventListener('click', e => {
                 if (e.target.classList.contains(modalsClass.replace(/\./, ''))) { closeModalCareer(modal); }
             });
         });
-        openCloseModalCareer(closeBtns);
+        addEvent(closeBtns);
     }
     
-    openCloseModalCareer(links);
+    addEvent(links);
 };
 /* harmony default export */ __webpack_exports__["default"] = (modal);
 
@@ -258,7 +261,7 @@ const slider = ({
             changeSlide(next, allSlides, actualPage);
         }
         if (e.keyCode == 37) {
-            changeSlide(prev, allSlides);
+            changeSlide(prev, allSlides, actualPage);
         }
     });
 
@@ -295,7 +298,8 @@ window.addEventListener('DOMContentLoaded', () => {
         modalsClass: '.navi_menu',
         closeButtonsClass: '.fixed_menu-link',
         activeBtnClass: 'active_menu',
-        active: 'navi__menu--active'
+        active: 'navi__menu--active',
+        escape: true
     });
 
     Object(_modules_modal__WEBPACK_IMPORTED_MODULE_0__["default"])({
