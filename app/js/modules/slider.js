@@ -51,16 +51,23 @@ const slider = ({
 
     if (wrapSlider) { 
         wrapSlider.addEventListener('touchstart', e => {
-            const startTouch = e.targetTouches[0].pageX;
+            const startTouchX = e.targetTouches[0].pageX,
+                  startTouchY = e.targetTouches[0].pageY;
+
+
 
             const touchMoveEvent = e => {
                 e.preventDefault();
 
-                if (startTouch > e.targetTouches[0].pageX) {
-                    changeSlide(next, allSlides, actualPage);
+                if (startTouchX > e.targetTouches[0].pageX) {
+                    if ((startTouchY + 5) >= e.targetTouches[0].pageY && (startTouchY - 5) <= e.targetTouches[0].pageY) {
+                        changeSlide(next, allSlides, actualPage);
+                    };
                 }
-                if (startTouch < e.targetTouches[0].pageX) {
-                    changeSlide(prev, allSlides, actualPage);
+                if (startTouchX < e.targetTouches[0].pageX) {
+                    if ((startTouchY + 5) >= e.targetTouches[0].pageY && (startTouchY - 5) <= e.targetTouches[0].pageY) {
+                        changeSlide(prev, allSlides, actualPage);
+                    };
                 }
 
                 wrapSlider.removeEventListener('touchmove', touchMoveEvent);    
