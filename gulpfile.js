@@ -17,8 +17,10 @@ const del = require('del');
 // deploy
 const util = require('gulp-util');
 const ftp = require('vinyl-ftp');
+
 // конфигурация и настройка сборки
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
+
 // all CSS files
 const cssFiles = [
     'app/css/layout/normalize.scss',
@@ -39,6 +41,8 @@ const cssFiles = [
     'app/css/media/animate.scss',
     'app/css/layout/media-print.scss'
 ];
+const cssLightTheme = ['app/css/theme/light.scss'];
+const cssDarkTheme = ['app/css/theme/dark.scss'];
 // all JS files
 const jsFiles = [
     'app/js/bundle.js'
@@ -67,6 +71,40 @@ function images(){
 function style(){
     return gulp.src(cssFiles)
     .pipe(concat('main.css'))
+    .pipe(plumber({
+        errorHandler: notify.onError(function(err){
+            return{title: 'Style', message: err.message};
+        })
+    }))
+    .pipe(gulpIf(isDevelopment, sourceMaps.init()))
+    .pipe(sass())
+    .pipe(autoprefixer('last 2 versions'))
+    .pipe(minifycss())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulpIf(isDevelopment, sourceMaps.write('maps')))
+    .pipe(gulp.dest('dist/css'))
+    .pipe(browserSync.stream());
+}
+function styleLight(){
+    return gulp.src(cssLightTheme)
+    .pipe(concat('light.css'))
+    .pipe(plumber({
+        errorHandler: notify.onError(function(err){
+            return{title: 'Style', message: err.message};
+        })
+    }))
+    .pipe(gulpIf(isDevelopment, sourceMaps.init()))
+    .pipe(sass())
+    .pipe(autoprefixer('last 2 versions'))
+    .pipe(minifycss())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulpIf(isDevelopment, sourceMaps.write('maps')))
+    .pipe(gulp.dest('dist/css'))
+    .pipe(browserSync.stream());
+}
+function styleDark(){
+    return gulp.src(cssDarkTheme)
+    .pipe(concat('dark.css'))
     .pipe(plumber({
         errorHandler: notify.onError(function(err){
             return{title: 'Style', message: err.message};
@@ -119,6 +157,8 @@ function watch() {
     // gulp.watch('app/php/**/*.*', forms)
     gulp.watch('app/pictures/**/*.*', images);
     gulp.watch('app/css/**/*.*', style);
+    gulp.watch('app/css/**/*.*', styleLight); //
+    gulp.watch('app/css/**/*.*', styleDark); //
     gulp.watch('app/js/**/*.*', script);
     gulp.watch('./dist/*.html').on('change', browserSync.reload);
 }
@@ -128,8 +168,10 @@ gulp.task('html', html);
 gulp.task('fonts', fonts);
 gulp.task('images', images);
 gulp.task('style', style);
+gulp.task('styleLight', styleLight); //
+gulp.task('styleDark', styleDark); //
 gulp.task('script', script);
 gulp.task('clean', clean);
 gulp.task('watch', watch);
-gulp.task('build', gulp.series(clean, gulp.parallel(html, fonts, images, style, script))); // vendorAllCss, vendorAllCss
+gulp.task('build', gulp.series(clean, gulp.parallel(html, fonts, images, style, styleLight, styleDark, script))); // vendorAllCss, vendorAllCss
 gulp.task('dev', gulp.series('build', 'watch'));

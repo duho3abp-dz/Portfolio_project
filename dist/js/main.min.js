@@ -303,6 +303,28 @@ const slider = ({
 
 /***/ }),
 
+/***/ "./app/js/modules/theme.js":
+/*!*********************************!*\
+  !*** ./app/js/modules/theme.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+
+const theme = ({idStyleLink}) => {
+    const mainStyle = document.querySelector(idStyleLink);
+
+    // mainStyle.href = ''
+    // console.dir(mainStyle.href);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (theme);
+
+/***/ }),
+
 /***/ "./app/js/script.js":
 /*!**************************!*\
   !*** ./app/js/script.js ***!
@@ -315,6 +337,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ "./app/js/modules/modal.js");
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ "./app/js/modules/slider.js");
 /* harmony import */ var _modules_hide__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/hide */ "./app/js/modules/hide.js");
+/* harmony import */ var _modules_theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/theme */ "./app/js/modules/theme.js");
+
 
 
 
@@ -322,6 +346,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('DOMContentLoaded', () => {
+
+    Object(_modules_theme__WEBPACK_IMPORTED_MODULE_3__["default"])({
+        idStyleLink: '#theme'
+    });
 
     Object(_modules_modal__WEBPACK_IMPORTED_MODULE_0__["default"])({
         linksClass: '.fixed_menu-link',

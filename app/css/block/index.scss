@@ -1,7 +1,6 @@
 //-----------------------------wrapper-----------------------------
 
 .wrapper{
-    background: #fff;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-template-rows: 1fr 1fr 1fr;
     display: grid;
@@ -24,7 +23,6 @@
 .decor-gray{
     grid-row-start: 1;
     grid-row-end: 3;
-    background: #8e8e8e;
     position: relative;
     overflow: hidden;
 }
@@ -53,8 +51,6 @@
 }
 
 .menu_block{
-    background: #d4d4d4;
-    border: #000000 solid;
     overflow: hidden;
 
     &:hover .menu_block-wrapper{
@@ -67,7 +63,6 @@
     display: grid;
     width: 100%;
     height: 100%;
-    background: #fdfdfd;
     opacity: 0.8;
 }
 
@@ -80,7 +75,6 @@
     margin-bottom: 3%;
     font-weight: 900;
     font-size: 18px;
-    color: #000000;
 }
 
 .menu_block-text{

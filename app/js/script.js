@@ -3,8 +3,13 @@
 import modal from './modules/modal';
 import slider from './modules/slider';
 import hide from './modules/hide';
+import theme from './modules/theme';
 
 window.addEventListener('DOMContentLoaded', () => {
+
+    theme({
+        idStyleLink: '#theme'
+    });
 
     modal({
         linksClass: '.fixed_menu-link',
