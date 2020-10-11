@@ -1,0 +1,35 @@
+@media screen and (max-width: 1024px) {
+
+    //-----------------------------fixed_menu-----------------------------
+    .menu-block .socials_icon {
+        fill: #fff;
+    }
+    //-----------------------------about_me-----------------------------
+    .about {
+        color: #000000;
+    }
+
+    //-----------------------------projects-----------------------------
+
+    .project_top-right {
+        color: #000000;
+    }
+
+    .button_custom {
+        &:hover {
+            background: #000000;
+            border: solid #fff;
+            color: #fff;
+        }
+    }
+
+    //-----------------------------career-----------------------------
+    .career-modal__content {
+        color: #000000;
+    }
+
+    //-----------------------------contact-----------------------------
+    .contact {
+        color: #000000;
+    }
+}

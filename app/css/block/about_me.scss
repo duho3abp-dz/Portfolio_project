@@ -1,7 +1,6 @@
 //-----------------------------about-----------------------------
 
 .wrapper_about {
-    background: #fff;
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     grid-template-rows: 1fr 1fr 1fr;
     display: grid;
@@ -25,14 +24,12 @@
     grid-row-start: 1;
     grid-row-end: 4;
     position: relative;
-    background: #8e8e8e;
     display: grid;
     overflow: hidden;
 }
 
 .about {
     width: 90%;
-    background: #fff;
     margin-top: 10%;
     margin-left: 1%;
     margin-bottom: 1%;
@@ -40,10 +37,6 @@
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 10px;
     z-index: 5;
-}
-
-.about_block {
-    background: #fdfdfd;
 }
 
 .about_block-left {
@@ -105,7 +98,6 @@
 .about_photo-wrap {
     width: 40%;
     min-width: 100px;
-    border: #000000 solid 1px;
     overflow: hidden;
     justify-self: center;
     align-self: center;
@@ -121,14 +113,12 @@
 
 .about_title {
     justify-self: end;
-    color: #000000;
     font-size: 14px;
     font-weight: 800;
 }
 
 .about_block-right {
     &:hover {
-        color: #000000;
         transition: all ease-in .7s;
     }
 }

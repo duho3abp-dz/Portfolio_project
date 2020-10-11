@@ -1,0 +1,50 @@
+//-----------------------------project-----------------------------
+
+.project-header {
+    background: #000;
+}
+
+.project-header_block {
+    background: #000;
+}
+
+.progect_gray {
+    background: #999;
+}
+
+.wrapper_project {
+    background: #000;
+}
+
+.project_top-right {
+    &:hover {
+        color: #fff;
+    }
+}
+
+.project_center {
+    background: #000;
+    border: solid #fff;
+}
+
+.project_counter {
+    background: #fff;
+    border: solid #000 2px ;
+    background: #fff;
+    
+    &-active {
+        color: #000;
+    }
+}
+
+.button_custom {
+    color: #000;
+    background: #fff;
+    border: solid #000;
+
+    &:hover {
+        background: #000;
+        border: solid #fff;
+        color: #fff;
+    }
+}

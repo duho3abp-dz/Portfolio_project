@@ -1,0 +1,51 @@
+.site_link{
+    color: #fff;
+}
+
+.fixed_menu-link{
+    background: #fff;
+}
+
+.fixed_menu-dash{
+    background: #000;
+}
+
+.navi_menu{
+    background: #fff;
+}
+
+.menu-block{
+    & .socials_icon {
+        fill: #999;
+
+        &:hover {
+            fill: #000;    
+        }
+    }
+}
+
+.navi_menu-list{
+    &:hover{
+        color: #000;
+    }
+}
+
+.menu-list_active {
+    color: #000;
+}
+
+.fixed_print-fa{
+    background: #fff;
+}
+
+.print-fa-svg{
+    fill: #000;
+}
+
+.fixed_phone-fa{
+    background: #fff;
+}
+
+.phone-fa-svg{
+    fill: #000;
+}

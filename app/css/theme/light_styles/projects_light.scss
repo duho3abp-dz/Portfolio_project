@@ -1,0 +1,50 @@
+//-----------------------------project-----------------------------
+
+.project-header {
+    background: #fff;
+}
+
+.project-header_block {
+    background: #fff;
+}
+
+.progect_gray {
+    background: #999;
+}
+
+.wrapper_project {
+    background: #fff;
+}
+
+.project_top-right {
+    &:hover {
+        color: #000000;
+    }
+}
+
+.project_center {
+    background: #d4d4d4;
+    border: solid #000000;
+}
+
+.project_counter {
+    background: #000;
+    border: solid #fff 2px ;
+    background: #000000;
+    
+    &-active {
+        color: #fff;
+    }
+}
+
+.button_custom {
+    color: #fff;
+    background: #000000;
+    border: solid #fff;
+
+    &:hover {
+        background: #fdfdfd;
+        border: solid #000;
+        color: #000000;
+    }
+}

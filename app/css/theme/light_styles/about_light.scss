@@ -1,0 +1,32 @@
+//-----------------------------about-----------------------------
+
+.wrapper_about {
+    background: #fff;
+}
+
+.maincontent {
+    background: #8e8e8e;
+}
+
+.about {
+    background: #fff;
+}
+
+.about_block {
+    background: #fdfdfd;
+}
+
+.about_photo-wrap {
+    border: #000000 solid 1px;
+    
+}
+
+.about_title {
+    color: #000000;
+}
+
+.about_block-right {
+    &:hover {
+        color: #000000;
+    }
+}

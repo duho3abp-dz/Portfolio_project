@@ -1,6 +1,5 @@
 //-----------------------------contact-----------------------------
 .wrapper_contact{
-    background: #fff;
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     grid-template-rows: 1fr 1fr 1fr;
     display: grid;
@@ -23,14 +22,12 @@
     grid-column-end: 8;
     grid-row-start: 1;
     grid-row-end: 4;
-    background: #8e8e8e;
     display: grid;
     position: relative;
     overflow: hidden;
 }
 
 .contact_about{
-    background: #fff;
     margin-top: 20%;
     margin-left: 1%;
     margin-bottom: 1%;
@@ -40,7 +37,6 @@
 }
 
 .contact_block{
-    background: #fff;
     display: grid;
     min-height: 300px;
     z-index: 5;
@@ -56,7 +52,6 @@
 
 .contact {
     &:hover{
-        color: #000000;
         transition: all ease-in 0.2s;
     }
 }

@@ -1,0 +1,45 @@
+//-----------------------------career-----------------------------
+
+.menu_block-brend {
+    color: #000000;
+}
+
+.adidas_svg {
+    fill: #000000;
+}
+
+//-----------------------------career-modal-----------------------------
+.career-modal {
+    background: #00000080;
+
+    &__block {
+        background: #fff;
+    }
+
+    &__close {
+        background: #fff;
+        
+        &::before {
+            background: #000000;
+        }
+
+        &::after {
+            background: #000000;
+        }
+    }
+
+    &__brend-fix {
+        color: #000000;
+    }
+
+    &__brend-f-m-c {
+        color: #000000;
+    }
+
+    &__content {
+        &:hover {
+            color: #000000;
+        }
+    }
+
+}

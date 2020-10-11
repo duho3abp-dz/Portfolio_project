@@ -19,10 +19,8 @@
 }
 
 .photo-media {
-    background: #d4d4d4;
     transition: all ease-in .2s;
     display: grid;
-    border: solid black;
 
     &:hover {
         transform: scale(1.3);

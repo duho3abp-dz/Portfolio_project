@@ -1,9 +1,6 @@
 @media screen and (max-width: 1024px) {
 
     //-----------------------------fixed_menu-----------------------------
-    .menu-block .socials_icon {
-        fill: #fff;
-    }
 
     .fixed-socials {
         display: none;
@@ -14,18 +11,9 @@
         opacity: 0.8;
     }
 
-    //-----------------------------about_me-----------------------------
-    .about {
-        color: #000000;
-    }
-
     //-----------------------------projects-----------------------------
     .wrapper_project {
         width: 80%;
-    }
-
-    .project_top-right {
-        color: #000000;
     }
 
     .progect_site-pic {
@@ -35,21 +23,8 @@
 
     .button_custom {
         &:hover {
-            background: #000000;
-            border: solid #fff;
-            color: #fff;
             opacity: .8;
         }
-    }
-
-    //-----------------------------career-----------------------------
-    .career-modal__content {
-        color: #000000;
-    }
-
-    //-----------------------------contact-----------------------------
-    .contact {
-        color: #000000;
     }
 
     //-----------------------------footer-----------------------------

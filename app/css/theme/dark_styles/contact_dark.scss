@@ -1,0 +1,22 @@
+//-----------------------------contact-----------------------------
+.wrapper_contact{
+    background: #000;
+}
+
+.maincontent_contact{
+    background: #8e8e8e;
+}
+
+.contact_about{
+    background: #000;
+}
+
+.contact_block{
+    background: #000;
+}
+
+.contact {
+    &:hover{
+        color: #fff;
+    }
+}
