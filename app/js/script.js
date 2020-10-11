@@ -8,7 +8,13 @@ import theme from './modules/theme';
 window.addEventListener('DOMContentLoaded', () => {
 
     theme({
-        idStyleLink: '#theme'
+        classStyleLink: '.theme',
+        idIndex: 'index',
+        lightThemeLink: 'css/light.min.css',
+        darkThemeLink: 'css/dark.min.css',
+        toggleBtnClass: '.theme-toggle',
+        switchClass: '.theme-toggle__switch',
+        activeDarkClass: 'theme-toggle__switch--dark'
     });
 
     modal({

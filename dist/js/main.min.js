@@ -314,11 +314,41 @@ const slider = ({
 __webpack_require__.r(__webpack_exports__);
 
 
-const theme = ({idStyleLink}) => {
-    const mainStyle = document.querySelector(idStyleLink);
+const theme = ({
+    classStyleLink, 
+    idIndex, 
+    lightThemeLink, 
+    darkThemeLink,
+    toggleBtnClass,
+    switchClass,
+    activeDarkClass
+}) => {
+    const mainStyle = document.querySelector(classStyleLink),
+          toggleBtn = document.querySelector(toggleBtnClass),
+          switchElem = document.querySelector(switchClass);
 
-    // mainStyle.href = ''
-    // console.dir(mainStyle.href);
+    const testHrefLink = (elem, id, themeLink) => {
+        if (elem.id === id) {    
+            elem.href = themeLink;
+        } else {
+            elem.href = `../${themeLink}`;
+        }
+    }
+
+    toggleBtn.addEventListener('click', e => {
+        if (switchElem.classList.contains(activeDarkClass)) {
+
+            switchElem.classList.remove(activeDarkClass);
+            testHrefLink(mainStyle, idIndex, lightThemeLink);
+
+        } else {
+
+            switchElem.classList.add(activeDarkClass);
+            testHrefLink(mainStyle, idIndex, darkThemeLink);
+            
+        }
+    });
+
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (theme);
@@ -348,7 +378,13 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', () => {
 
     Object(_modules_theme__WEBPACK_IMPORTED_MODULE_3__["default"])({
-        idStyleLink: '#theme'
+        classStyleLink: '.theme',
+        idIndex: 'index',
+        lightThemeLink: 'css/light.min.css',
+        darkThemeLink: 'css/dark.min.css',
+        toggleBtnClass: '.theme-toggle',
+        switchClass: '.theme-toggle__switch',
+        activeDarkClass: 'theme-toggle__switch--dark'
     });
 
     Object(_modules_modal__WEBPACK_IMPORTED_MODULE_0__["default"])({

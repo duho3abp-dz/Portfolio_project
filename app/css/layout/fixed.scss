@@ -168,3 +168,37 @@
     transform: translateX(-50%);
     z-index: 100;
 }
+
+// -----------------------------Theme-switcher-----------------------------
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    cursor: pointer;
+
+    &__block {
+        width: 60px;
+        height: 30px;
+        position: relative;
+    }
+
+    &__switch {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 0%;
+        left: 0%;
+        transition: .3s;
+
+        &--dark {
+            left: 50%;
+        }
+    }
+}

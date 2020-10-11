@@ -49,3 +49,12 @@
 .phone-fa-svg{
     fill: #000;
 }
+
+.theme-toggle {
+    border: 2px solid #fff;
+    background: #000;
+
+    &__switch {
+        background: #fff;
+    }
+}

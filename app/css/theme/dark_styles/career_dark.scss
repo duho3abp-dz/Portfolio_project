@@ -10,7 +10,7 @@
 
 //-----------------------------career-modal-----------------------------
 .career-modal {
-    background: #ffffff80;
+    background: #56565680;
 
     &__block {
         background: #000;
@@ -40,6 +40,10 @@
         &:hover {
             color: #fff;
         }
+    }
+
+    &__adidas-svg {
+        fill: #fff;
     }
 
 }
