@@ -126,6 +126,27 @@ const hide = ({hideElemClass, elemTargetClass}) => {
 
 /***/ }),
 
+/***/ "./app/js/modules/methods/testHrefLink.js":
+/*!************************************************!*\
+  !*** ./app/js/modules/methods/testHrefLink.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const testHrefLink = (elem, id, themeLink) => {
+    if (elem.id === id) {    
+        elem.href = themeLink;
+    } else {
+        elem.href = `../${themeLink}`;
+    }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (testHrefLink);
+
+/***/ }),
+
 /***/ "./app/js/modules/modal.js":
 /*!*********************************!*\
   !*** ./app/js/modules/modal.js ***!
@@ -312,6 +333,9 @@ const slider = ({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _methods_testHrefLink__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methods/testHrefLink */ "./app/js/modules/methods/testHrefLink.js");
+
+
 
 
 const theme = ({
@@ -327,25 +351,21 @@ const theme = ({
           toggleBtn = document.querySelector(toggleBtnClass),
           switchElem = document.querySelector(switchClass);
 
-    const testHrefLink = (elem, id, themeLink) => {
-        if (elem.id === id) {    
-            elem.href = themeLink;
-        } else {
-            elem.href = `../${themeLink}`;
-        }
-    }
-
     toggleBtn.addEventListener('click', e => {
         if (switchElem.classList.contains(activeDarkClass)) {
 
+            localStorage.setItem('theme', 'light');
+
             switchElem.classList.remove(activeDarkClass);
-            testHrefLink(mainStyle, idIndex, lightThemeLink);
+            Object(_methods_testHrefLink__WEBPACK_IMPORTED_MODULE_0__["default"])(mainStyle, idIndex, lightThemeLink);
 
         } else {
 
+            localStorage.setItem('theme', 'dark');
+
             switchElem.classList.add(activeDarkClass);
-            testHrefLink(mainStyle, idIndex, darkThemeLink);
-            
+            Object(_methods_testHrefLink__WEBPACK_IMPORTED_MODULE_0__["default"])(mainStyle, idIndex, darkThemeLink);
+
         }
     });
 
@@ -368,6 +388,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ "./app/js/modules/slider.js");
 /* harmony import */ var _modules_hide__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/hide */ "./app/js/modules/hide.js");
 /* harmony import */ var _modules_theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/theme */ "./app/js/modules/theme.js");
+/* harmony import */ var _modules_methods_testHrefLink__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/methods/testHrefLink */ "./app/js/modules/methods/testHrefLink.js");
+
+
 
 
 
@@ -377,15 +400,39 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    Object(_modules_theme__WEBPACK_IMPORTED_MODULE_3__["default"])({
-        classStyleLink: '.theme',
-        idIndex: 'index',
-        lightThemeLink: 'css/light.min.css',
-        darkThemeLink: 'css/dark.min.css',
-        toggleBtnClass: '.theme-toggle',
-        switchClass: '.theme-toggle__switch',
-        activeDarkClass: 'theme-toggle__switch--dark'
-    });
+    const checkTheme = () => {
+        const classStyleLink = '.theme',
+              idIndex = 'index',
+              lightThemeLink = 'css/light.min.css',
+              darkThemeLink = 'css/dark.min.css',
+              activeDarkClass = 'theme-toggle__switch--dark';
+
+        const mainStyle = document.querySelector(classStyleLink),
+            switchElem = document.querySelector('.theme-toggle__switch'),
+            actualTheme = localStorage.getItem('theme');
+            
+        if (actualTheme === 'light') {
+            switchElem.classList.remove(activeDarkClass);
+            Object(_modules_methods_testHrefLink__WEBPACK_IMPORTED_MODULE_4__["default"])(mainStyle, idIndex, lightThemeLink);
+        } else if (actualTheme === 'dark') {
+            switchElem.classList.add(activeDarkClass);
+            Object(_modules_methods_testHrefLink__WEBPACK_IMPORTED_MODULE_4__["default"])(mainStyle, idIndex, darkThemeLink);
+        } else {
+            Object(_modules_methods_testHrefLink__WEBPACK_IMPORTED_MODULE_4__["default"])(mainStyle, idIndex, lightThemeLink);
+        }
+
+        Object(_modules_theme__WEBPACK_IMPORTED_MODULE_3__["default"])({
+            classStyleLink,
+            idIndex,
+            activeDarkClass,
+            lightThemeLink,
+            darkThemeLink,
+            toggleBtnClass: '.theme-toggle',
+            switchClass: '.theme-toggle__switch'
+        });
+    };
+    
+    checkTheme();
 
     Object(_modules_modal__WEBPACK_IMPORTED_MODULE_0__["default"])({
         linksClass: '.fixed_menu-link',

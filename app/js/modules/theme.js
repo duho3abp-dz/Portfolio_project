@@ -1,5 +1,7 @@
 'use strict';
 
+import testHrefLink from './methods/testHrefLink';
+
 const theme = ({
     classStyleLink, 
     idIndex, 
@@ -13,25 +15,21 @@ const theme = ({
           toggleBtn = document.querySelector(toggleBtnClass),
           switchElem = document.querySelector(switchClass);
 
-    const testHrefLink = (elem, id, themeLink) => {
-        if (elem.id === id) {    
-            elem.href = themeLink;
-        } else {
-            elem.href = `../${themeLink}`;
-        }
-    }
-
     toggleBtn.addEventListener('click', e => {
         if (switchElem.classList.contains(activeDarkClass)) {
+
+            localStorage.setItem('theme', 'light');
 
             switchElem.classList.remove(activeDarkClass);
             testHrefLink(mainStyle, idIndex, lightThemeLink);
 
         } else {
 
+            localStorage.setItem('theme', 'dark');
+
             switchElem.classList.add(activeDarkClass);
             testHrefLink(mainStyle, idIndex, darkThemeLink);
-            
+
         }
     });
 

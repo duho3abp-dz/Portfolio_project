@@ -5,17 +5,43 @@ import slider from './modules/slider';
 import hide from './modules/hide';
 import theme from './modules/theme';
 
+import testHrefLink from './modules/methods/testHrefLink';
+
 window.addEventListener('DOMContentLoaded', () => {
 
-    theme({
-        classStyleLink: '.theme',
-        idIndex: 'index',
-        lightThemeLink: 'css/light.min.css',
-        darkThemeLink: 'css/dark.min.css',
-        toggleBtnClass: '.theme-toggle',
-        switchClass: '.theme-toggle__switch',
-        activeDarkClass: 'theme-toggle__switch--dark'
-    });
+    const checkTheme = () => {
+        const classStyleLink = '.theme',
+              idIndex = 'index',
+              lightThemeLink = 'css/light.min.css',
+              darkThemeLink = 'css/dark.min.css',
+              activeDarkClass = 'theme-toggle__switch--dark';
+
+        const mainStyle = document.querySelector(classStyleLink),
+            switchElem = document.querySelector('.theme-toggle__switch'),
+            actualTheme = localStorage.getItem('theme');
+            
+        if (actualTheme === 'light') {
+            switchElem.classList.remove(activeDarkClass);
+            testHrefLink(mainStyle, idIndex, lightThemeLink);
+        } else if (actualTheme === 'dark') {
+            switchElem.classList.add(activeDarkClass);
+            testHrefLink(mainStyle, idIndex, darkThemeLink);
+        } else {
+            testHrefLink(mainStyle, idIndex, lightThemeLink);
+        }
+
+        theme({
+            classStyleLink,
+            idIndex,
+            activeDarkClass,
+            lightThemeLink,
+            darkThemeLink,
+            toggleBtnClass: '.theme-toggle',
+            switchClass: '.theme-toggle__switch'
+        });
+    };
+    
+    checkTheme();
 
     modal({
         linksClass: '.fixed_menu-link',
