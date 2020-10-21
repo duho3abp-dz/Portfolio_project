@@ -290,12 +290,12 @@ const slider = ({
                 e.preventDefault();
 
                 if (startTouchX > e.targetTouches[0].pageX) {
-                    if ((startTouchY + 5) >= e.targetTouches[0].pageY && (startTouchY - 5) <= e.targetTouches[0].pageY) {
+                    if ((startTouchY + 3) >= e.targetTouches[0].pageY && (startTouchY - 3) <= e.targetTouches[0].pageY) {
                         changeSlide(next, allSlides, actualPage);
                     };
                 }
                 if (startTouchX < e.targetTouches[0].pageX) {
-                    if ((startTouchY + 5) >= e.targetTouches[0].pageY && (startTouchY - 5) <= e.targetTouches[0].pageY) {
+                    if ((startTouchY + 3) >= e.targetTouches[0].pageY && (startTouchY - 3) <= e.targetTouches[0].pageY) {
                         changeSlide(prev, allSlides, actualPage);
                     };
                 }
