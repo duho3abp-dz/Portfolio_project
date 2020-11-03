@@ -175,9 +175,18 @@ const modal = ({
         if (fade) { modal.classList.toggle(fade); }
 
         modal.classList.toggle(active);
-        modal.classList.contains(active) ? 
-            document.body.style.overflow = 'hidden' : 
-            document.body.style.overflow = '' ;
+
+        if (modal.classList.contains(active)) {
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.html.style.overflow = 'hidden';
+            document.html.style.position = 'fixed';
+        } else {
+            document.body.style.overflow = '';
+            document.body.style.position = 'relative';
+            document.html.style.overflow = '';
+            document.html.style.position = '';
+        }
     };
 
     const addEvent = links => links.forEach((link, i) => {
@@ -201,7 +210,11 @@ const modal = ({
         if (fade) { modal.classList.remove(fade); }
 
         modal.classList.remove(active);
+        
         document.body.style.overflow = '';
+        document.body.style.position = 'relative';
+        document.html.style.overflow = '';
+        document.html.style.position = '';
     };
 
     if (background) {
