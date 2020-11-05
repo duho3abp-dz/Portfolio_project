@@ -21,13 +21,9 @@ const modal = ({
         if (modal.classList.contains(active)) {
             document.body.style.overflow = 'hidden';
             document.body.style.position = 'fixed';
-            document.html.style.overflow = 'hidden';
-            document.html.style.position = 'fixed';
         } else {
             document.body.style.overflow = '';
             document.body.style.position = 'relative';
-            document.html.style.overflow = '';
-            document.html.style.position = '';
         }
     };
 
