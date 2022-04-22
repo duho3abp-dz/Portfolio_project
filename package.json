@@ -37,7 +37,7 @@
     "axios": "^0.21.1",
     "elliptic": "^6.5.4",
     "fancybox": "^3.0.1",
-    "fullpage.js": "^3.0.8",
+    "fullpage.js": "^4.0.5",
     "ini": "^2.0.0",
     "inputmask": "^5.0.3",
     "is-svg": "^4.3.1",
