@@ -29,8 +29,8 @@
     "gulp-util": "^3.0.8",
     "http-proxy": "^1.18.1",
     "vinyl-ftp": "^0.6.1",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
     "yargs-parser": "^19.0.4"
   },
   "dependencies": {
